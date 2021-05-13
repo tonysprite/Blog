@@ -1,0 +1,46 @@
+{
+    "name": "tonysprite/blog",
+    "description": "This is a private blog system,you can see http://blog.easyhtml.cn",
+    "keywords": [
+      "phalcon "
+    ],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    },
+    "require-dev": {
+      "phalcon/dd": "v1.0.3",
+      "phalcon/ide-stubs": "3.4.3",
+      "friendsofphp/php-cs-fixer": "^2.14",
+      "phpunit/phpunit": "~6.5",
+      "phpstan/phpstan": "^0.12.85"
+    },
+    "autoload": {
+      "files": [
+        "app/config/constants.php",
+        "app/config/helpers.php"
+      ],
+      "classmap": [
+        "app/library/",
+        "app/validation/"
+      ],
+      "psr-4": {
+        "Modules\\": "app/modules/"
+      }
+    },
+    "scripts": {
+      "cs-fix": "php-cs-fixer fix $1",
+      "analyse": "phpstan analyse --memory-limit 500M -l 0 -c phpstan.neon ./app ./cron",
+      "test": "phpunit -c tests/phpunit.xml --colors=always"
+    },
+    "config": {
+      "secure-http": false
+    }
+  }
+  
